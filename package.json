@@ -1,0 +1,25 @@
+{
+  "name": "graphql-test-server",
+  "version": "1.0.0",
+  "description": "Test GraphQL server with validation and ACL restictions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yvelianyk/graphql-test-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yvelianyk/graphql-test-server/issues"
+  },
+  "homepage": "https://github.com/yvelianyk/graphql-test-server#readme",
+  "dependencies": {
+    "apollo-server": "^2.9.6",
+    "graphql": "^14.5.8"
+  }
+}
