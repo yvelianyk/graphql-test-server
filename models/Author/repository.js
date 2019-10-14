@@ -43,5 +43,12 @@ module.exports =  {
         });
 
         return result;
+    },
+    updateAuthorPosts: async (post) => {
+        authors.forEach(author => {
+            if(author.name === post.author) {
+                author.posts.push(post.id);
+            }
+        })
     }
 };

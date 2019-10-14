@@ -29,6 +29,13 @@ module.exports =  {
     getAll: ()=> {
         return posts;
     },
+    createPost: async (postData) => {
+        const newId = posts[posts.length - 1].id + 1;
+        const newPost = postData;
+        newPost.id = newId;
+        posts.push(newPost);
+        return newPost;
+    },
     findByAuthor: async (authorNames) => {
         console.log('CALLING FIND POSTS BY AUTHOR REPOSITORY');// TODO: remove it
         const result = [];
