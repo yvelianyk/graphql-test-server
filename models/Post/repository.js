@@ -29,7 +29,20 @@ module.exports =  {
     getAll: ()=> {
         return posts;
     },
-    findByAuthor: (authorName) => {
-        return posts.filter(book => book.author === authorName);
+    findByAuthor: async (authorNames) => {
+        console.log('CALLING FIND POSTS BY AUTHOR REPOSITORY');// TODO: remove it
+        const result = [];
+        authorNames.forEach(authorName => {
+            const authorPosts = [];
+            posts.forEach(post => {
+                const {author} = post;
+                if (author === authorName) {
+                    authorPosts.push(post);
+                }
+            });
+            result.push(authorPosts);
+        });
+
+        return result;
     },
 };

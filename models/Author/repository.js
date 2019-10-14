@@ -26,12 +26,22 @@ module.exports =  {
         return authors;
     },
     findById: (id) => {
+        console.log("GET AUTHOR BY ID");// TODO: remove it
         return authors.find(author => author.id === id);
     },
-    getByPost: (id) => {
-        return authors.find(author => {
-           const {posts} = author;
-           return posts.includes(id);
+    getByPost: async (ids) => {
+        console.log('CALLING AUTHOR GET BY POST REPOSITORY');// TODO: remove it
+        const idsSet = new Set(ids);
+        const result = [];
+        authors.forEach(author => {
+            const {posts} = author;
+            posts.forEach(postId => {
+               if (idsSet.has(postId)) {
+                   result.push(author);
+               }
+            });
         });
+
+        return result;
     }
 };
