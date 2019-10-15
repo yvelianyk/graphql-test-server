@@ -4,7 +4,7 @@ const authorRepository = require('../Author/repository');
 module.exports = {
     Post: {
         author: async (parent, args, context, info) => {
-            return context.getAuthorByPostLoader.load(parent.id);
+            return context.dataLoaders.getAuthorByPostLoader.load(parent.id);
         },
     },
     Mutation: {
