@@ -6,15 +6,15 @@ const { merge } = require('lodash');
 
 const Author = require('./models/Author');
 const Post = require('./models/Post');
-const Logic = require('./logic');
+const Common = require('./common');
 const dataLoaders = require('./models/dataLoaders');
 const directiveTypes = require('./directives/schema');
 const AuthDirective = require('./directives/authDirective/AuthDirective');
 const types = mergeTypes(
-    [Author.typeDefs, Post.typeDefs, Logic.schema, directiveTypes],
+    [Author.typeDefs, Post.typeDefs, Common.schema, directiveTypes],
     { all: true },
 );
-const resolversArr = [Logic.resolver, Author.resolvers, Post.resolvers];
+const resolversArr = [Common.resolver, Author.resolvers, Post.resolvers];
 const resolvers = merge.apply({}, resolversArr);
 const schema = makeExecutableSchema({
     typeDefs: gql`${types}`,
