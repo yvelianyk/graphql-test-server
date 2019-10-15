@@ -11,7 +11,7 @@ module.exports = `
       author: String!      
     }
     
-    type Mutation {
+    type Mutation @auth(requires: ADMIN) {
       createPost(input: PostInput!): Post
     }
 `;

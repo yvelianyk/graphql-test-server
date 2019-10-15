@@ -8,9 +8,10 @@ const Author = require('./models/Author');
 const Post = require('./models/Post');
 const Logic = require('./logic');
 const dataLoaders = require('./models/dataLoaders');
-
+const directiveTypes = require('./directives/schema');
+const AuthDirective = require('./directives/authDirective/AuthDirective');
 const types = mergeTypes(
-    [Author.typeDefs, Post.typeDefs, Logic.schema],
+    [Author.typeDefs, Post.typeDefs, Logic.schema, directiveTypes],
     { all: true },
 );
 const resolversArr = [Logic.resolver, Author.resolvers, Post.resolvers];
@@ -18,7 +19,10 @@ const resolvers = merge.apply({}, resolversArr);
 const schema = makeExecutableSchema({
     typeDefs: gql`${types}`,
     resolvers,
-    schemaDirectives: { constraint: ConstraintDirective }
+    schemaDirectives: {
+        constraint: ConstraintDirective,
+        auth: AuthDirective
+    }
 });
 const server = new ApolloServer({
     schema,
@@ -33,7 +37,7 @@ const server = new ApolloServer({
 
         context.user = {
           id: 'someUserId',
-          roles: ['ADMIN']
+          roles: ['USER']
         };
 
         return context;
