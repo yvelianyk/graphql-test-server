@@ -6,7 +6,7 @@ module.exports = `
     }
          
     input PostInput {
-      title: String!
+      title: String! @isEmail
       text: String!
       author: String!      
     }

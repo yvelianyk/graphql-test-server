@@ -10,6 +10,7 @@ const Common = require('./common');
 const dataLoaders = require('./models/dataLoaders');
 const directiveTypes = require('./directives/schema');
 const AuthDirective = require('./directives/authDirective/AuthDirective');
+const IsEmailValidationDirective = require('./directives/validation/isEmail');
 const types = mergeTypes(
     [Author.typeDefs, Post.typeDefs, Common.schema, directiveTypes],
     { all: true },
@@ -21,7 +22,8 @@ const schema = makeExecutableSchema({
     resolvers,
     schemaDirectives: {
         constraint: ConstraintDirective,
-        auth: AuthDirective
+        auth: AuthDirective,
+        isEmail: IsEmailValidationDirective
     }
 });
 const server = new ApolloServer({
