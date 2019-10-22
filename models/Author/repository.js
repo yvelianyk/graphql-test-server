@@ -30,7 +30,7 @@ module.exports =  {
         return authors.find(author => author.id === id);
     },
     getByPost: async (ids) => {
-        console.log('CALLING AUTHOR GET BY POST REPOSITORY');// TODO: remove it
+        console.log('CALLING AUTHOR GET BY POST REPOSITORY', ids);// TODO: remove it
         const idsSet = new Set(ids);
         const result = [];
         authors.forEach(author => {

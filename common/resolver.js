@@ -9,7 +9,7 @@ module.exports = {
         },
         getPostsByAuthor: async (parent, args, context, info) => {
             const { authorName } = args;
-            return posts.findByAuthor(authorName);
+            return posts.findAll(authorName);
         },
     },
 };

@@ -25,8 +25,8 @@ const posts = [
     },
 ];
 
-module.exports =  {
-    getAll: ()=> {
+module.exports = {
+    getAll: () => {
         return posts;
     },
     createPost: async (postData) => {
@@ -36,8 +36,18 @@ module.exports =  {
         posts.push(newPost);
         return newPost;
     },
+    findAll: async (authorName) => {
+        const authorPosts = [];
+        posts.forEach(post => {
+            const {author} = post;
+            if (author === authorName) {
+                authorPosts.push(post);
+            }
+        });
+        return authorPosts;
+    },
     findByAuthor: async (authorNames) => {
-        console.log('CALLING FIND POSTS BY AUTHOR REPOSITORY');// TODO: remove it
+        console.log('CALLING FIND POSTS BY AUTHOR REPOSITORY', authorNames);// TODO: remove it
         const result = [];
         authorNames.forEach(authorName => {
             const authorPosts = [];
