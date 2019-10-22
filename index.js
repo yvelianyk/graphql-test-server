@@ -37,7 +37,7 @@ const server = new ApolloServer({
 
         context.user = {
           id: 'someUserId',
-          roles: ['USER']
+          roles: ['ADMIN']
         };
 
         return context;

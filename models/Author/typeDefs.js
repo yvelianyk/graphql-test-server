@@ -6,8 +6,8 @@ module.exports = `
     }
          
     input PostInput {
-      title: String! @constraint(minLength: 5, format: "email")
-      text: String! @constraint(minLength: 5, format: "email")
+      title: String!
+      text: String!
       author: String!      
     }
     

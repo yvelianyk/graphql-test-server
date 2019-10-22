@@ -13,7 +13,7 @@ const posts = [
     },
     {
         id: 3,
-        title: 'Bags with sheet',
+        title: 'Bags with fruits',
         text: 'some text 3',
         author: 'Dick Nixon',
     },
