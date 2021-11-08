@@ -20,7 +20,7 @@
   "homepage": "https://github.com/yvelianyk/graphql-test-server#readme",
   "dependencies": {
     "@hapi/joi": "^16.1.7",
-    "apollo-server": "^2.9.6",
+    "apollo-server": "^2.25.3",
     "dataloader": "^1.4.0",
     "graphql": "^14.5.8",
     "graphql-constraint-directive": "^1.4.1",
